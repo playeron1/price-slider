@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>PRICE SLIDER</h1>
+    <div class="min">
+      <p>Minimum amount</p>
+      <div class="box"></div>
+    </div>
+    <div class="slider">
+        <input type="range" name="slider" id="min" min="0" max="10000" value="0"/>
+      </div>
+    <input type="submit" value="Submit" class="submit"/>
+    <div class="max">
+      <p>Maximum amount</p>
+      <div class="box"></div>
+    </div>
+    <div class="slider">
+        <input type="range" name="slider" id="max" min="0" max="10000" value="8000" />
+      </div>
+    <input type="submit" value="Submit" class="submit"/>
+    <p><br>Minimum value: <span id="minval"> Rs. 0</span> <br> Maximum value: Rs. <span id="maxval">8000</span></p>
+  </body>
+</html>
