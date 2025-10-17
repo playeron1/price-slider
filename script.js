@@ -1,30 +1,15 @@
-let min_slider = document.querySelector("#min");
-let max_slider = document.querySelector("#max");
-let minval_disp = document.querySelector("#minval");
-let maxval_disp = document.querySelector("#maxval");
+const slider = document.getElementById("priceSlider");
+    const priceValue = document.getElementById("priceValue");
 
-// Update min slider
-min_slider.addEventListener("input", () => {
-  let minVal = parseInt(min_slider.value);
-  let maxVal = parseInt(max_slider.value);
+    function updateSliderBackground(value) {
+      const percent = (value - slider.min) / (slider.max - slider.min) * 100;
+      slider.style.background = `linear-gradient(90deg, #4CAF50 ${percent}%, #ddd ${percent}%)`;
+    }
 
-  if (minVal >= maxVal) {
-    minVal = maxVal - 100; // prevent crossing
-    min_slider.value = minVal;
-  }
+    slider.addEventListener("input", function() {
+      priceValue.textContent = this.value;
+      updateSliderBackground(this.value);
+    });
 
-  minval_disp.textContent = "Rs. " + minVal;
-});
-
-// Update max slider
-max_slider.addEventListener("input", () => {
-  let minVal = parseInt(min_slider.value);
-  let maxVal = parseInt(max_slider.value);
-
-  if (maxVal <= minVal) {
-    maxVal = minVal + 100; // prevent crossing
-    max_slider.value = maxVal;
-  }
-
-  maxval_disp.textContent = "Rs. " + maxVal;
-});
+    // Initialize background
+    updateSliderBackground(slider.value);
